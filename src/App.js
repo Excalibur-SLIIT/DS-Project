@@ -1,11 +1,10 @@
 import './App.css';
-import Additem from './components/Add-item';
-
+import RoutesComponent from './Routes/RoutesComponent';
 
 function App() {
   return (
     <div className="App">
-      <Additem/>
+      <RoutesComponent/>
     </div>
   );
 }

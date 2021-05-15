@@ -1,0 +1,102 @@
+.search {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.search {
+    width: 900px;
+}
+
+.search button {
+    font-size: 18px;
+    width: 100px;
+}
+
+.search input {
+    font-size: 16px;
+}
+
+.input-text {
+    border: none;
+}
+
+.signin {
+    margin-top: 65px;
+}
+
+.footer {
+    margin-top: 110px;
+}
+
+.brands {
+    box-sizing: border-box;
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+.brands .brand {
+    box-sizing: border-box;
+    margin-top: 40px;
+    padding-bottom: 25px;
+    border: 1px solid #fff;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.brands .brand:hover {
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 3px rgba(31, 31, 31, 0.1);
+}
+
+.brands .brand img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.brands .brand .content {
+    display: block;
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.brands .brand .content a {
+    padding-left: 0px;
+    padding-right: 25px;
+}
+
+.brands .brand p.price {
+    display: inline-block;
+    font-size: 22px;
+    line-height: 28px;
+    color: #00C500;
+}
+
+.brands .brand p.sale {
+    display: inline-block;
+    font-size: 22px;
+    line-height: 28px;
+    color: #00C500;
+}
+
+.brands .brand p.through {
+    text-decoration: line-through;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FF0000;
+}
+
+.brands .brand label {
+    display: block;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 28px;
+}
