@@ -5,6 +5,7 @@ import Home from '../Pages/Home/Home';
 import SignIn from '../Pages/SignIn/SignIn';
 import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
+import SellerAccount from '../Pages/SellerAccount/SellerAccount'
 
 class RoutesComponent extends Component {
     render() {
@@ -17,6 +18,7 @@ class RoutesComponent extends Component {
                     <Route path="/seller/additem" exact component={SellerAddItem} />
                     <Route path="/cart" exact component={Cart} />
                     <Route path="/store" exact component ={Store} />
+                    <Route path="/sellerAcc" exact component = {SellerAccount}/>
                 </Switch>
             </Router>
         )
