@@ -5,8 +5,9 @@ import Home from '../Pages/Home/Home';
 import SignIn from '../Pages/SignIn/SignIn';
 import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
-import SellerAccount from '../Pages/SellerAccount/SellerAccount'
+import SellerProfile from '../Pages/SellerProfile/SellerProfile'
 import Checkout from '../Pages/Checkout/Checkout';
+import ProductProfile from '../Pages/ProductProfile/ProductProfile'
 
 class RoutesComponent extends Component {
     render() {
@@ -33,8 +34,8 @@ class RoutesComponent extends Component {
 
                     {/* Shevon */}
                     <Route path="/store" exact component={Store} />
-                    <Route path="/sellerAcc" exact component={SellerAccount} />
-
+                    <Route path="/sellerProfile" exact component={SellerProfile} />
+                    <Route path="/productProfile" exact component={ProductProfile}/>
 
 
 
