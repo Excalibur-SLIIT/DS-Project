@@ -25,7 +25,7 @@ class RoutesComponent extends Component {
 
 
                     {/* Dilusha */}
-                    <Route path="/seller/additem" exact component={SellerAddItem} />
+                    <Route path="/additem" exact component={SellerAddItem} />
 
 
 

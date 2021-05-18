@@ -13,19 +13,21 @@ class PageHeader extends Component {
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"> <i class="ion-cube"></i> Excalibur</a>
+                            <a class="navbar-brand" href="/"> <i class="ion-cube"></i> Excalibur</a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Page</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/cart">Cart</a></li>
+                                <li><a href="/checkout">Checkout</a></li>
+                                <li><a href="store">Store</a></li>
+                                <li><a href="/sellerAcc">Seller A/C</a></li>
+                                <li><a href="/additem">Add Item</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li>
-                                    <a href="#"> <i class="ion-android-person"></i> Login </a>
-                                </li>
+                                <li><a href="/signin"> <i class="ion-android-person"></i> Login </a></li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up <span class="caret"></span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="">Sign Up As A Buyer</a></li>
                                         <li><a href="">Sign Up As A Seller</a></li>
