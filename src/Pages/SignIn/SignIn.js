@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-/***import Footer from '../../Components/Common/Footer/Footer'***/
-import Header from '../../components/Common/Header/PageHeader'
+import PageFooter from '../../components/Common/Footer/PageFooter'
+import PageHeader from '../../components/Common/Header/PageHeader'
 import FormModule from '../../Modules/SignInModules/FormModule/FormModule'
 
 class SignIn extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <PageHeader/>
                 <FormModule />
-                {/****<Footer />****/}
+                <PageFooter/>
             </div>
         )
     }

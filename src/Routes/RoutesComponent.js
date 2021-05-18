@@ -6,6 +6,7 @@ import SignIn from '../Pages/SignIn/SignIn';
 import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
 import SellerAccount from '../Pages/SellerAccount/SellerAccount'
+import Checkout from '../Pages/Checkout/Checkout';
 
 class RoutesComponent extends Component {
     render() {
@@ -13,12 +14,32 @@ class RoutesComponent extends Component {
             <Router>
                 <Switch>
 
+                    {/* Maduka */}
                     <Route path="/" exact component={Home} />
                     <Route path="/signin" exact component={SignIn} />
-                    <Route path="/seller/additem" exact component={SellerAddItem} />
                     <Route path="/cart" exact component={Cart} />
-                    <Route path="/store" exact component ={Store} />
-                    <Route path="/sellerAcc" exact component = {SellerAccount}/>
+                    <Route path="/checkout" exact component={Checkout} />
+
+
+
+
+
+                    {/* Dilusha */}
+                    <Route path="/seller/additem" exact component={SellerAddItem} />
+
+
+
+
+
+                    {/* Shevon */}
+                    <Route path="/store" exact component={Store} />
+                    <Route path="/sellerAcc" exact component={SellerAccount} />
+
+
+
+
+
+
                 </Switch>
             </Router>
         )

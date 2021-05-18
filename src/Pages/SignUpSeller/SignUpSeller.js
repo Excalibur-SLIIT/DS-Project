@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import Footer from '../../Components/Common/Footer/Footer'
-import Header from '../../Components/Common/Header/Header'
+import PageFooter from '../../components/Common/Footer/PageFooter'
+import PageHeader from '../../components/Common/Header/PageHeader'
+
 
 class SignUpSeller extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <PageHeader/>
                 
-                <Footer/>
+                <PageFooter/>
             </div>
         )
     }

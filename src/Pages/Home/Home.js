@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import PageFooter from '../../components/Common/Footer/PageFooter'
 import Footer from '../../components/Common/Footer/PageFooter'
+import PageHeader from '../../components/Common/Header/PageHeader'
 import Header from '../../components/Common/Header/PageHeader'
 import BrandSection from '../../Modules/HomeModules/BrandSection/BrandSection'
 import DisplaySection from '../../Modules/HomeModules/DisplaySection/DisplaySection'
@@ -10,12 +12,12 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <PageHeader/>
                 <DisplaySection />
                 <SearchSection />
                 <BrandSection />
                 <NewProductsSection />
-                <Footer />
+                <PageFooter/>
             </div>
         )
     }
