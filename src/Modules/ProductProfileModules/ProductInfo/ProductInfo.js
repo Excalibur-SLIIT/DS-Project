@@ -20,7 +20,9 @@ export default class ProductInfo extends Component {
                     </div>
 
                     <div class="col-sm-5 col-md-5">
-                        <img src="../assets/img/brands/hp.png" alt="HP" class="brand hidden-xs" />
+                        <br></br>
+                        <br></br>
+                        <br></br>
 
                         <h1>HP Chromebook 11</h1>
 

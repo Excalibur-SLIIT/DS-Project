@@ -8,6 +8,7 @@ import Store from '../Pages/Store/Store'
 import SellerProfile from '../Pages/SellerProfile/SellerProfile'
 import Checkout from '../Pages/Checkout/Checkout';
 import ProductProfile from '../Pages/ProductProfile/ProductProfile'
+import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile'
 
 class RoutesComponent extends Component {
     render() {
@@ -36,6 +37,7 @@ class RoutesComponent extends Component {
                     <Route path="/store" exact component={Store} />
                     <Route path="/sellerProfile" exact component={SellerProfile} />
                     <Route path="/productProfile" exact component={ProductProfile}/>
+                    <Route path="/customerProfile" exact component ={CustomerProfile}/>
 
 
 
