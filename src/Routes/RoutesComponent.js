@@ -33,11 +33,12 @@ class RoutesComponent extends Component {
 
 
 
+
                     {/* Shevon */}
                     <Route path="/store" exact component={Store} />
-                    <Route path="/sellerProfile" exact component={SellerProfile} />
-                    <Route path="/productProfile" exact component={ProductProfile}/>
-                    <Route path="/customerProfile" exact component ={CustomerProfile}/>
+                    <Route path="/sellerprofile" exact component={SellerProfile} />
+                    <Route path="/productprofile" exact component={ProductProfile} />
+                    <Route path="/customerprofile" exact component={CustomerProfile} />
 
 
 

@@ -21,7 +21,7 @@ class PageHeader extends Component {
                                 <li><a href="/cart">Cart</a></li>
                                 <li><a href="/checkout">Checkout</a></li>
                                 <li><a href="store">Store</a></li>
-                                <li><a href="/sellerAcc">Seller A/C</a></li>
+                                <li><a href="/sellerprofile">Seller A/C</a></li>
                                 <li><a href="/additem">Add Item</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
