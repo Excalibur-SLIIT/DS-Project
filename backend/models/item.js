@@ -34,7 +34,7 @@ const Item = new mongo.Schema({
         require: true
     },
     wifi: {
-        type: Boolean,
+        type: String,
         require: true
     },
     power: {
