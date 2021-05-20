@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
-export default class SellerItemList extends Component {
+export default class CustomerOrderHistory extends Component {
     render() {
         return (
-<div>
-            <section class="products">
+            <div>
+                
+
+                <section class="products">
                     <div class="container">
-                        <h1>Item List</h1>
+                        <h1>Order History</h1>
                         <br/>
                         
                         <div class="row">
@@ -28,13 +30,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$199.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                            
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a> <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -50,11 +46,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$209.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a > <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -70,11 +62,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$449.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a> <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -90,11 +78,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$199.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a > <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -110,11 +94,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$199.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a > <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -130,11 +110,7 @@ export default class SellerItemList extends Component {
                                         <p class="price">$199.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm111"  style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
-
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a > <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -150,11 +126,9 @@ export default class SellerItemList extends Component {
                                         <p class="price">$199.99</p>
                                         </div>
                                         <div class="controls">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-rounded btn-sm" style={{fontSize: '17px'}}> Edit</button>
-                                        </div>
+                                       
 
-                                        <a href="#remove"> <i class="ion-trash-b"></i> Remove </a>
+                                        <a > <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
                                         </div>
                                     </div>
 
@@ -204,10 +178,9 @@ export default class SellerItemList extends Component {
       </div>
 
       </footer>
-                
 
 
-</div>
+            </div>
         )
     }
 }

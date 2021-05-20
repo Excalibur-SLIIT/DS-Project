@@ -5,10 +5,15 @@ import Home from '../Pages/Home/Home';
 import SignIn from '../Pages/SignIn/SignIn';
 import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
-import SellerAccount from '../Pages/SellerAccount/SellerAccount'
+import SellerProfile from '../Pages/SellerProfile/SellerProfile'
 import Checkout from '../Pages/Checkout/Checkout';
+<<<<<<< HEAD
 import BuyerSignUp from '../Pages/BuyerSignUp/BuyerSignUp';
 import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
+=======
+import ProductProfile from '../Pages/ProductProfile/ProductProfile'
+import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile'
+>>>>>>> master
 
 class RoutesComponent extends Component {
     render() {
@@ -35,10 +40,12 @@ class RoutesComponent extends Component {
 
 
 
+
                     {/* Shevon */}
                     <Route path="/store" exact component={Store} />
-                    <Route path="/sellerAcc" exact component={SellerAccount} />
-
+                    <Route path="/sellerprofile" exact component={SellerProfile} />
+                    <Route path="/productprofile" exact component={ProductProfile} />
+                    <Route path="/customerprofile" exact component={CustomerProfile} />
 
 
 
