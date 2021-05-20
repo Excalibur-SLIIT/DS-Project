@@ -1,11 +1,7 @@
 const router = require("express").Router();
-const controller = require("../controllers/item.controller");
+const controller = require("../controllers/buyer.controller");
 
 router.route("/").get(controller.get);
-
-router.route("/search/:id").get(controller.searchByName);
-
-router.route("/seller/:id").get(controller.getItemsBySellerId);
 
 router.route("/:id").get(controller.getById);
 
@@ -14,5 +10,7 @@ router.route("/").post(controller.create);
 router.route("/:id").put(controller.update);
 
 router.route("/:id").delete(controller.remove);
+
+router.route("/login").post(controller.login);
 
 module.exports = router;

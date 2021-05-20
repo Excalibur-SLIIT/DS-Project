@@ -1,10 +1,6 @@
 const mongo = require("mongoose");
 
 const Buyer = new mongo.Schema({
-    id: {
-        type: Number,
-        require: true
-    },
     username: {
         type: String,
         require: true
@@ -27,10 +23,6 @@ const Buyer = new mongo.Schema({
     },
     mobile: {
         type: Number,
-
-    },
-    address: {
-        type: String,
         require: true
     }
 },{

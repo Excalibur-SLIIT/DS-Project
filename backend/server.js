@@ -5,9 +5,11 @@ const cors = require("cors");
 const mongo = require("mongoose");
 //---------------routes-------------------------
 
-
+const sellerRoute = require("./routes/seller.routes");
+const buyerRoute = require("./routes/buyer.routes");
 const itemRoute = require("./routes/item.routes");
-
+const cartsRoute = require("./routes/carts.routes")
+const checkoutRoute = require("./routes/chekout.routes");
 
 //----------------------------------------------
 app.use(express.static('public'));
@@ -17,7 +19,7 @@ require("dotenv").config();
 
 const url = process.env.DB_URI;
 
-mongo.connect(url,{ useNewUrlParser : true, useCreateIndex : true, useUnifiedTopology : true, useFindAndModify: false });
+mongo.connect(url,{ useNewUrlParser : true, useCreateIndex : true, useUnifiedTopology : true, useFindAndModify: false }).catch(err => console.log(err));
 
 const connection = mongo.connection;
 
@@ -27,9 +29,11 @@ connection.once("open", () => {
 
 const port = 5000;
 
-
+app.use("/seller", sellerRoute);
+app.use("/buyer", buyerRoute);
 app.use("/item", itemRoute);
-
+app.use("/carts", cartsRoute);
+app.use("/checkout", checkoutRoute)
 
 app.listen(port,() => {
     console.log(`server started on port ${port}`);

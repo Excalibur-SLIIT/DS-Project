@@ -1,10 +1,6 @@
 const mongo = require("mongoose");
 
 const Seller = new mongo.Schema({
-    id: {
-        type: Number,
-        require: true
-    },
     username: {
         type: String,
         require: true

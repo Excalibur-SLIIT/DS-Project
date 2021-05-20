@@ -1,10 +1,14 @@
 const mongo = require("mongoose");
 
-const Item = new mongo.Schema({
-    // sellerId: {
-    //     type: Number,
-    //     require: true
-    // },
+exports.Item = new mongo.Schema({
+    sellerId: {
+        type: String,
+        require: true
+    },
+    name: {
+        type: String,
+        require: true
+    },
     brand: {
         type: String,
         require: true
@@ -57,4 +61,4 @@ const Item = new mongo.Schema({
     timestamps: true
 });
 
-module.exports = mongo.model("Item", Item);
+exports.model = mongo.model("Item", exports.Item);
