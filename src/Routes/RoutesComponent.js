@@ -7,6 +7,8 @@ import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
 import SellerAccount from '../Pages/SellerAccount/SellerAccount'
 import Checkout from '../Pages/Checkout/Checkout';
+import BuyerSignUp from '../Pages/BuyerSignUp/BuyerSignUp';
+import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
 
 class RoutesComponent extends Component {
     render() {
@@ -19,6 +21,8 @@ class RoutesComponent extends Component {
                     <Route path="/signin" exact component={SignIn} />
                     <Route path="/cart" exact component={Cart} />
                     <Route path="/checkout" exact component={Checkout} />
+                    <Route path="/buyersignup" exact component={BuyerSignUp} />
+                    <Route path="/sellersignup" exact component={SellerSignup} />
 
 
 

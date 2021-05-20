@@ -128,20 +128,13 @@ export class Additem extends Component {
 
         console.log('Item Added Suucess !!!');
 
-
-
-
     }
-
-
-
 
     render() {
         return (
             <div className="Home">
                 <hr className="offset-lg hidden-xs"></hr>
                 <hr className="offset-md"></hr>
-
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 md-padding">
@@ -278,73 +271,17 @@ export class Additem extends Component {
                                                 onChange={this.onChangeDate}
                                             /><br />
                                         </div>
-
                                     </div>
                                 </div>
-
                                 <br />
-
-                                <button type="submit" className="btn btn-primary">Add This Laptop</button>
+                                <button type="submit" className="btn btn-primary">Add Laptop</button>
                                 <br />
                                 <br />
                             </form>
-                            <br />
-                            <br />
-                            <hr className="hidden-xs" />
-                            <br className="hidden-xs" />
-                            <br className="hidden-xs" />
+                            
                         </div>
                     </div>
                 </div>
-
-                <footer>
-                    <div className="about">
-                        <div className="container">
-                            <div className="row">
-                                <hr className="offset-md" />
-
-                                <div className="col-xs-6 col-sm-3">
-                                    <div className="item">
-                                        <i className="ion-ios-telephone-outline" />
-                                        <h1>24/7 free <br /> <span>support</span></h1>
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-sm-3">
-                                    <div className="item">
-                                        <i className="ion-ios-star-outline"></i>
-                                        <h1>Low price <br /> <span>guarantee</span></h1>
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-sm-3">
-                                    <div className="item">
-                                        <i className="ion-ios-gear-outline"></i>
-                                        <h1> Manufacturer’s <br /> <span>warranty</span></h1>
-                                    </div>
-                                </div>
-                                <div className="col-xs-6 col-sm-3">
-                                    <div className="item">
-                                        <i className="ion-ios-loop"></i>
-                                        <h1> Full refund <br /> <span>guarantee</span> </h1>
-                                    </div>
-                                </div>
-
-                                <hr className="offset-md" />
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="container">
-                        <hr className="offset-md" />
-
-
-                    </div>
-
-                    <hr />
-                </footer>
-
-
-
             </div>
         )
     }

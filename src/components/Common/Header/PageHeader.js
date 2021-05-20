@@ -29,8 +29,8 @@ class PageHeader extends Component {
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="">Sign Up As A Buyer</a></li>
-                                        <li><a href="">Sign Up As A Seller</a></li>
+                                        <li><a href="/buyersignup">Sign Up As A Buyer</a></li>
+                                        <li><a href="/sellersignup">Sign Up As A Seller</a></li>
                                     </ul>
                                 </li>
                             </ul>
