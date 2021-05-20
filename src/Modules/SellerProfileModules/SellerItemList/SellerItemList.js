@@ -77,64 +77,66 @@ export default class SellerItemList extends Component {
                 (currentItems.brand.toLowerCase().includes(this.state.searchItem.toLowerCase()))
             ) {
                 return (
-                    <tr>
-                        <td style={{ width: "20%" }}>{currentItems.brand}</td>
-                        <td style={{ width: "20%" }}>{currentItems.colour}</td>
-                        <td style={{ width: "20%" }}>{currentItems.os}</td>
-                        <td style={{ width: "20%" }}>{currentItems.processor}</td>
-                        <td style={{ width: "20%" }}>{currentItems.memory}</td>
-                        <td style={{ width: "20%" }}>{currentItems.graphics}</td>
-                        <td style={{ width: "20%" }}>{currentItems.storage}</td>
-                        <td style={{ width: "20%" }}>{currentItems.wifi}</td>
-                        <td style={{ width: "20%" }}>{currentItems.power}</td>
-                        <td style={{ width: "20%" }}>{currentItems.battery}</td>
-                        <td style={{ width: "20%" }}>{currentItems.price}</td>
-                        <td style={{ width: "20%" }}>{currentItems.date.substring(0, 10)}</td>
+                    <div class="p-4">
+                        <tr>
+                            <td style={{ width: "20%" }}>{currentItems.brand}</td>
+                            <td style={{ width: "20%" }}>{currentItems.colour}</td>
+                            <td style={{ width: "20%" }}>{currentItems.os}</td>
+                            <td style={{ width: "20%" }}>{currentItems.processor}</td>
+                            <td style={{ width: "20%" }}>{currentItems.memory}</td>
+                            <td style={{ width: "20%" }}>{currentItems.graphics}</td>
+                            <td style={{ width: "20%" }}>{currentItems.storage}</td>
+                            <td style={{ width: "20%" }}>{currentItems.wifi}</td>
+                            <td style={{ width: "20%" }}>{currentItems.power}</td>
+                            <td style={{ width: "20%" }}>{currentItems.battery}</td>
+                            <td style={{ width: "20%" }}>{currentItems.price}</td>
+                            <td style={{ width: "20%" }}>{currentItems.date.substring(0, 10)}</td>
 
-                        <td style={{ width: "20%" }}>
-                            {
-                                <button className="edit">
-                                    <Link
-                                        to={"/editItem/" + currentItems._id}
-                                        className="link"
-                                    >
-                                        Edit
+                            <td style={{ width: "20%" }}>
+                                {
+                                    <button className="edit">
+                                        <Link
+                                            to={"/editItem/" + currentItems._id}
+                                            className="link"
+                                        >
+                                            Edit
                                 </Link>
-                                </button>
-                            }
-                            {"  "}
-                            {
-                                <button
-                                    className="delete"
-                                    onClick={() => {
-                                        //Delete the selected record
-                                        axios
-                                            .delete(
-                                                "http://localhost:5000/items/" + currentItems._id
-                                            )
-                                            .then(() => {
-                                                alert("Delete Success");
-                                                //Get data again after delete
-                                                axios
-                                                    .get("http://localhost:5000/items")
-                                                    .then((res) => {
-                                                        console.log(res.data);
-                                                        this.setState({
-                                                            items: res.data,
-                                                        });
-                                                    })
-                                                    .catch((err) => console.log(err));
-                                            })
-                                            .catch((err) => {
-                                                alert(err);
-                                            });
-                                    }}
-                                >
-                                    Delete
+                                    </button>
+                                }
+                                {"  "}
+                                {
+                                    <button
+                                        className="delete"
+                                        onClick={() => {
+                                            //Delete the selected record
+                                            axios
+                                                .delete(
+                                                    "http://localhost:5000/items/" + currentItems._id
+                                                )
+                                                .then(() => {
+                                                    alert("Delete Success");
+                                                    //Get data again after delete
+                                                    axios
+                                                        .get("http://localhost:5000/items")
+                                                        .then((res) => {
+                                                            console.log(res.data);
+                                                            this.setState({
+                                                                items: res.data,
+                                                            });
+                                                        })
+                                                        .catch((err) => console.log(err));
+                                                })
+                                                .catch((err) => {
+                                                    alert(err);
+                                                });
+                                        }}
+                                    >
+                                        Delete
                         </button>
-                            }
-                        </td>
-                    </tr>
+                                }
+                            </td>
+                        </tr>
+                    </div>
                 );
             }
         });
@@ -148,13 +150,13 @@ export default class SellerItemList extends Component {
                     <h1>Item List</h1>
                     <br />
 
-                    <div class="row">
-                        <div class="d-flex justify-content-center">
-                            <div class="card rounded col col-md-6 col-lg-6 shadow-lg mb-2 mx-auto p-4">
+                    <div class="row container-fluid">
+                        <div class="d-flex">
+                            <div class="card rounded col col-md-6 col-lg-8 shadow-lg mb-2 m-5 p-4">
 
                                 <div class="card-body p-2 rounded mw-auto">
-                                    <div class="d-flex align-items-center p-1 mb-2">
-                                        <div class="content">
+                                    <div class="d-flex align-items-center p-1 mx-auto">
+                                        <div class="content position-absolute top-50 start-50">
                                             <tr>
 
                                                 <div className="col-md-9 d-flex justify-content-start">
@@ -172,30 +174,30 @@ export default class SellerItemList extends Component {
                                                 </div>
                                             </tr>
                                             <tr>
-                                                <div class="d-flex justify-content-center p-3 mb-0">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th className="tbhead">Brand</th>
-                                                                <th className="tbhead">Colour</th>
-                                                                <th className="tbhead">OS</th>
-                                                                <th className="tbhead">Processor</th>
-                                                                <th className="tbhead">Memory</th>
-                                                                <th className="tbhead">Graphics</th>
-                                                                <th className="tbhead">Storage</th>
-                                                                <th className="tbhead">WIFI</th>
-                                                                <th className="tbhead">Power</th>
-                                                                <th className="tbhead">Battery</th>
-                                                                <th className="tbhead">Price</th>
-                                                                <th className="tbhead">Date</th>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="tbhead">Brand</th>
+                                                            <th className="tbhead">Colour</th>
+                                                            <th className="tbhead">OS</th>
+                                                            <th className="tbhead">Processor</th>
+                                                            <th className="tbhead">Memory</th>
+                                                            <th className="tbhead">Graphics</th>
+                                                            <th className="tbhead">Storage</th>
+                                                            <th className="tbhead">WIFI</th>
+                                                            <th className="tbhead">Power</th>
+                                                            <th className="tbhead">Battery</th>
+                                                            <th className="tbhead">Price</th>
+                                                            <th className="tbhead">Date</th>
 
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {this.state.searchItem == "" ? this.itemList() : this.searchItemList()}
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {this.state.searchItem == "" ? this.itemList() : this.searchItemList()}
+                                                    </tbody>
+                                                </table>
+
+
                                             </tr>
 
                                         </div>
@@ -206,7 +208,7 @@ export default class SellerItemList extends Component {
                         </div>
 
                     </div>
-                </div>
+                </div >
 
 
 
@@ -215,7 +217,7 @@ export default class SellerItemList extends Component {
 
 
 
-            </div>
+            </div >
         )
     }
 }

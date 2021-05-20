@@ -7,7 +7,7 @@ export class Additem extends Component {
     constructor(props) {
         super(props);
 
-
+        this.onChangeSellerId = this.onChangeSellerId.bind(this);
         this.onChangeBrand = this.onChangeBrand.bind(this);
         this.onChangeColour = this.onChangeColour.bind(this);
         this.onChangeOS = this.onChangeOS.bind(this);
@@ -19,11 +19,11 @@ export class Additem extends Component {
         this.onChangePower = this.onChangePower.bind(this);
         this.onChangeBattery = this.onChangeBattery.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
-        this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
 
+            sellerId: '',
             brand: '',
             colour: '',
             os: '',
@@ -35,9 +35,15 @@ export class Additem extends Component {
             power: '',
             battery: '',
             price: '',
-            date: new Date()
+
 
         }
+    }
+
+    onChangeSellerId(event) {
+        this.setState({
+            sellerId: event.target.value
+        });
     }
 
     onChangeBrand(event) {
@@ -95,11 +101,7 @@ export class Additem extends Component {
             price: event.target.value
         });
     }
-    onChangeDate(date) {
-        this.setState({
-            date: date
-        });
-    }
+
 
     onSubmit(event) {
 
@@ -107,6 +109,7 @@ export class Additem extends Component {
 
         const item = {
 
+            sellerId: this.state.sellerId,
             brand: this.state.brand,
             colour: this.state.colour,
             os: this.state.os,
@@ -118,15 +121,16 @@ export class Additem extends Component {
             power: this.state.power,
             battery: this.state.battery,
             price: this.state.price,
-            date: this.state.date
+
         }
 
-        console.log(item);
-
         axios.post('http://localhost:5000/item/', item)
-            .then(res => console.log(res.data));
+            .then(res => console.log(item)
 
-        console.log('Item Added Suucess !!!');
+            );
+
+        window.location = "/sellerprofile";
+
 
     }
 
@@ -143,6 +147,15 @@ export class Additem extends Component {
                             <form className="join" onSubmit={this.onSubmit}>
                                 <div className="container-fluid">
                                     <div className="row">
+                                        <div className="col-sm-12">
+                                            <input type="text"
+                                                name="sellerId" value=""
+                                                placeholder="Seller ID"
+                                                required="" className="form-control"
+                                                value={this.state.sellerId}
+                                                onChange={this.onChangeSellerId}
+                                            /><br />
+                                        </div>
                                         <div className="col-sm-12">
                                             <input type="text"
                                                 name="brand" value=""
@@ -261,16 +274,6 @@ export class Additem extends Component {
                                                 onChange={this.onChangePrice}
                                             /><br />
                                         </div>
-                                        <div className="col-sm-12">
-                                            <input
-                                                type="date"
-                                                name="date"
-                                                placeholder="Date"
-                                                className="form-control"
-                                                value={this.state.date}
-                                                onChange={this.onChangeDate}
-                                            /><br />
-                                        </div>
                                     </div>
                                 </div>
                                 <br />
@@ -278,7 +281,7 @@ export class Additem extends Component {
                                 <br />
                                 <br />
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 const mongo = require("mongoose");
 
 exports.Item = new mongo.Schema({
+
     sellerId: {
         type: String,
         require: true
