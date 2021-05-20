@@ -7,13 +7,8 @@ import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
 import SellerProfile from '../Pages/SellerProfile/SellerProfile'
 import Checkout from '../Pages/Checkout/Checkout';
-<<<<<<< HEAD
 import BuyerSignUp from '../Pages/BuyerSignUp/BuyerSignUp';
 import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
-=======
-import ProductProfile from '../Pages/ProductProfile/ProductProfile'
-import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile'
->>>>>>> master
 
 class RoutesComponent extends Component {
     render() {
