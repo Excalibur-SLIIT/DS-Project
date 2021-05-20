@@ -10,15 +10,15 @@ export default class ProductProfile extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <Header />
                 <div class="product">
-    	            <div class="container">
+                    <div class="container">
                         <ProductInfo />
                         <br></br>
                         <ProductSpecifications />
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }

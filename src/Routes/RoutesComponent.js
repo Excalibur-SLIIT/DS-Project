@@ -9,6 +9,8 @@ import SellerProfile from '../Pages/SellerProfile/SellerProfile'
 import Checkout from '../Pages/Checkout/Checkout';
 import BuyerSignUp from '../Pages/BuyerSignUp/BuyerSignUp';
 import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
+import ProductProfile from '../Pages/ProductProfile/ProductProfile';
+import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile';
 
 class RoutesComponent extends Component {
     render() {
