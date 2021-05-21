@@ -3,11 +3,9 @@ import axios from 'axios';
 
 export class Additem extends Component {
 
-
     constructor(props) {
         super(props);
 
-        this.onChangeSellerId = this.onChangeSellerId.bind(this);
         this.onChangeBrand = this.onChangeBrand.bind(this);
         this.onChangeColour = this.onChangeColour.bind(this);
         this.onChangeOS = this.onChangeOS.bind(this);
@@ -281,7 +279,6 @@ export class Additem extends Component {
                                 <br />
                                 <br />
                             </form>
-
                         </div>
                     </div>
                 </div>

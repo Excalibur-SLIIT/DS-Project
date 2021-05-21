@@ -10,13 +10,14 @@ class FormModule extends Component {
         this.onRegister = this.onRegister.bind(this);
 
         this.state = {
-            username: "",
-            password: "",
+            username:"",
             fname: "",
             lname: "",
+            companyName:"",
             email: "",
             mobile: "",
-            address: ""
+            address: "",
+            password: ""
         }
     }
 
@@ -26,19 +27,21 @@ class FormModule extends Component {
 
         e.preventDefault();
 
-        const buyer = {
+        const seller = {
             username: this.state.username,
-            password: this.state.password,
             fname: this.state.fname,
             lname: this.state.lname,
+            password: this.state.password,
+            companyName: this.state.companyName,
             email: this.state.email,
             mobile: this.state.mobile,
             address: this.state.address,
         }
 
-        axios.post('http://localhost:5000/buyer/', buyer)
+        axios.post('http://localhost:5000/seller/', seller)
             .then(res => console.log(res.data))
             .catch(e => console.log(e));
+
     }
     render() {
         return (
@@ -48,12 +51,12 @@ class FormModule extends Component {
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 md-padding">
-                            <h1 class="align-center">Sign Up As A Buyer</h1>
+                            <h1 class="align-center">Sign Up As A Seller</h1>
                             <br />
                             <form class="join" onSubmit={this.onRegister}>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                    <div class="col-sm-12">
                                             <input type="text" name="username" value={this.state.username} placeholder="Username" required="" class="form-control" onChange={(e) => { this.onValueChange(e); }} /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -61,6 +64,9 @@ class FormModule extends Component {
                                         </div>
                                         <div class="col-sm-12">
                                             <input type="text" name="lname" value={this.state.lname} placeholder="Last Name" required="" class="form-control" onChange={(e) => { this.onValueChange(e); }} /><br />
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" name="companyName" value={this.state.companyName} placeholder="Company Name" required="" class="form-control" onChange={(e) => { this.onValueChange(e); }} /><br />
                                         </div>
                                         <div class="col-sm-12">
                                             <input type="text" name="mobile" value={this.state.phone} placeholder="Phone" required="" class="form-control" onChange={(e) => { this.onValueChange(e); }} /><br />
@@ -84,10 +90,6 @@ class FormModule extends Component {
                         </div>
                     </div>
                 </div>
-                <br /><br />
-                <hr class="hidden-xs" />
-                <br class="hidden-xs" />
-                <br class="hidden-xs" />
             </div>
         )
     }

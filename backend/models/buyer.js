@@ -22,7 +22,7 @@ const Buyer = new mongo.Schema({
         require: true,
     },
     mobile: {
-        type: Number,
+        type: String,
         require: true
     }
 },{

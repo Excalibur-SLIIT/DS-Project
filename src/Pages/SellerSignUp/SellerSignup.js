@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PageFooter from '../../components/Common/Footer/PageFooter'
 import PageHeader from '../../components/Common/Header/PageHeader'
-import FormModule from '../../Modules/SellerSignupModules/FormModule'
+import FormModule from '../../Modules/SellerSignupModules/FormModule/FormModule'
+
 
 class SellerSignup extends Component {
     render() {

@@ -5,10 +5,6 @@ const Seller = new mongo.Schema({
         type: String,
         require: true
     },
-    password: {
-        type: String,
-        require: true
-    },
     fname: {
         type: String,
         require: true
@@ -17,13 +13,21 @@ const Seller = new mongo.Schema({
         type: String,
         require: true
     },
+    password: {
+        type: String,
+        require: true
+    },
+    companyName: {
+        type: String,
+        require: true
+    },
     email: {
         type: String,
-        require: true,
+        require: true
     },
     mobile: {
-        type: Number,
-
+        type: String,
+        require: true
     },
     address: {
         type: String,
