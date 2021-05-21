@@ -1,8 +1,8 @@
 table,
 th {
-  padding: 25px !important;
+  padding: 20px !important;
 }
 
-td {
-  padding: 5px;
+button {
+  overflow: hidden;
 }

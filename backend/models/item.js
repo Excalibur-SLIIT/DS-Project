@@ -54,10 +54,7 @@ exports.Item = new mongo.Schema({
         type: Number,
         require: true
     },
-    date: {
-        type: Date,
-        require: true
-    }
+
 }, {
     timestamps: true
 });

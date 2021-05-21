@@ -11,6 +11,7 @@ import BuyerSignUp from '../Pages/BuyerSignUp/BuyerSignUp';
 import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
 import ProductProfile from '../Pages/ProductProfile/ProductProfile';
 import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile';
+import SellerEditItem from '../Pages/Seller-EditItem/Edit-item';
 
 class RoutesComponent extends Component {
     render() {
@@ -32,7 +33,8 @@ class RoutesComponent extends Component {
 
                     {/* Dilusha */}
                     <Route path="/additem" exact component={SellerAddItem} />
-
+                    <Route path="/sellerprofile" component={SellerProfile} />
+                    <Route path="/edititem/:id" component={SellerEditItem} />
 
 
 
@@ -40,7 +42,6 @@ class RoutesComponent extends Component {
 
                     {/* Shevon */}
                     <Route path="/store" exact component={Store} />
-                    <Route path="/sellerprofile" exact component={SellerProfile} />
                     <Route path="/productprofile" exact component={ProductProfile} />
                     <Route path="/customerprofile" exact component={CustomerProfile} />
 

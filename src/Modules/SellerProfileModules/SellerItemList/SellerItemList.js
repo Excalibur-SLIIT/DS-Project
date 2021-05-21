@@ -17,7 +17,7 @@ const Item = props => (
         <td>{props.items.price}</td>
         <td>{props.items.date.substring(0, 10)}</td>
         <td>
-            <button className='delete' onClick={() => { props.deleteItem(props.items._id) }}>Delete</button>
+            <button className='edit'><Link to={"/edititem/" + props.items._id} className="link">Edit</Link></button> <button className='delete' onClick={() => { props.deleteItem(props.items._id) }}>Delete</button>
         </td>
     </tr >
 )
@@ -93,47 +93,51 @@ export default class SellerItemList extends Component {
                             <td style={{ width: "20%" }}>{currentItems.date.substring(0, 10)}</td>
 
                             <td style={{ width: "20%" }}>
-                                {
-                                    <button className="edit">
-                                        <Link
-                                            to={"/editItem/" + currentItems._id}
-                                            className="link"
-                                        >
-                                            Edit
+                                <div class="row">
+                                    {
+                                        <button className="edit">
+                                            <Link
+                                                to={"/edititem/" + currentItems._id}
+                                                className="link"
+                                            >
+                                                Edit
                                 </Link>
-                                    </button>
-                                }
-                                {"  "}
-                                {
-                                    <button
-                                        className="delete"
-                                        onClick={() => {
-                                            //Delete the selected record
-                                            axios
-                                                .delete(
-                                                    "http://localhost:5000/items/" + currentItems._id
-                                                )
-                                                .then(() => {
-                                                    alert("Delete Success");
-                                                    //Get data again after delete
-                                                    axios
-                                                        .get("http://localhost:5000/items")
-                                                        .then((res) => {
-                                                            console.log(res.data);
-                                                            this.setState({
-                                                                items: res.data,
-                                                            });
-                                                        })
-                                                        .catch((err) => console.log(err));
-                                                })
-                                                .catch((err) => {
-                                                    alert(err);
-                                                });
-                                        }}
-                                    >
-                                        Delete
+                                        </button>
+                                    }
+                                </div>
+
+                                <div class="row">
+                                    {
+                                        <button
+                                            className="delete"
+                                            onClick={() => {
+                                                //Delete the selected record
+                                                axios
+                                                    .delete(
+                                                        "http://localhost:5000/item/" + currentItems._id
+                                                    )
+                                                    .then(() => {
+                                                        alert("Delete Success");
+                                                        //Get data again after delete
+                                                        axios
+                                                            .get("http://localhost:5000/item")
+                                                            .then((res) => {
+                                                                console.log(res.data);
+                                                                this.setState({
+                                                                    items: res.data,
+                                                                });
+                                                            })
+                                                            .catch((err) => console.log(err));
+                                                    })
+                                                    .catch((err) => {
+                                                        alert(err);
+                                                    });
+                                            }}
+                                        >
+                                            Delete
                         </button>
-                                }
+                                    }
+                                </div>
                             </td>
                         </tr>
                     </div>
