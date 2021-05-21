@@ -10,10 +10,10 @@ class FormModule extends Component {
         this.onRegister = this.onRegister.bind(this);
 
         this.state = {
-            username:"",
+            username: "",
             fname: "",
             lname: "",
-            companyName:"",
+            companyName: "",
             email: "",
             mobile: "",
             address: "",
@@ -42,6 +42,8 @@ class FormModule extends Component {
             .then(res => console.log(res.data))
             .catch(e => console.log(e));
 
+        window.location = "./sellerprofile";
+
     }
     render() {
         return (
@@ -56,7 +58,7 @@ class FormModule extends Component {
                             <form class="join" onSubmit={this.onRegister}>
                                 <div class="container-fluid">
                                     <div class="row">
-                                    <div class="col-sm-12">
+                                        <div class="col-sm-12">
                                             <input type="text" name="username" value={this.state.username} placeholder="Username" required="" class="form-control" onChange={(e) => { this.onValueChange(e); }} /><br />
                                         </div>
                                         <div class="col-sm-12">
