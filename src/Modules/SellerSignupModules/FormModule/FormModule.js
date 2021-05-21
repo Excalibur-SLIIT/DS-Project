@@ -42,7 +42,7 @@ class FormModule extends Component {
             .then(res => console.log(res.data))
             .catch(e => console.log(e));
 
-        window.location = "./sellerprofile";
+        window.location = "./additem";
 
     }
     render() {
