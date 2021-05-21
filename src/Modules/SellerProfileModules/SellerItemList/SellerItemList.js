@@ -15,7 +15,6 @@ const Item = props => (
         <td>{props.items.power}</td>
         <td>{props.items.battery}</td>
         <td>{props.items.price}</td>
-        <td>{props.items.date.substring(0, 10)}</td>
         <td>
             <button className='edit'><Link to={"/edititem/" + props.items._id} className="link">Edit</Link></button> <button className='delete' onClick={() => { props.deleteItem(props.items._id) }}>Delete</button>
         </td>
@@ -90,7 +89,7 @@ export default class SellerItemList extends Component {
                             <td style={{ width: "20%" }}>{currentItems.power}</td>
                             <td style={{ width: "20%" }}>{currentItems.battery}</td>
                             <td style={{ width: "20%" }}>{currentItems.price}</td>
-                            <td style={{ width: "20%" }}>{currentItems.date.substring(0, 10)}</td>
+
 
                             <td style={{ width: "20%" }}>
                                 <div class="row">
@@ -192,7 +191,7 @@ export default class SellerItemList extends Component {
                                                             <th className="tbhead">Power</th>
                                                             <th className="tbhead">Battery</th>
                                                             <th className="tbhead">Price</th>
-                                                            <th className="tbhead">Date</th>
+                                                            <th className="tbhead">Action</th>
 
                                                         </tr>
                                                     </thead>

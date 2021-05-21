@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Cart from '../Pages/Cart/Cart';
 import Home from '../Pages/Home/Home';
-import SignIn from '../Pages/SignIn/SignIn';
 import SellerAddItem from '../Pages/Seller-AddItem/Add-item';
 import Store from '../Pages/Store/Store'
 import SellerProfile from '../Pages/SellerProfile/SellerProfile'
@@ -12,6 +11,8 @@ import SellerSignup from '../Pages/SellerSignUp/SellerSignup';
 import ProductProfile from '../Pages/ProductProfile/ProductProfile';
 import CustomerProfile from '../Pages/CustomerProfile/CustomerProfile';
 import SellerEditItem from '../Pages/Seller-EditItem/Edit-item';
+import SellerSignIn from '../Pages/SignIn/SellerSignIn/SignIn';
+import BuyerSignIn from '../Pages/SignIn/BuyerSignIn/SignIn';
 
 class RoutesComponent extends Component {
     render() {
@@ -21,11 +22,10 @@ class RoutesComponent extends Component {
 
                     {/* Maduka */}
                     <Route path="/" exact component={Home} />
-                    <Route path="/signin" exact component={SignIn} />
                     <Route path="/cart" exact component={Cart} />
                     <Route path="/checkout" exact component={Checkout} />
                     <Route path="/buyersignup" exact component={BuyerSignUp} />
-                    <Route path="/sellersignup" exact component={SellerSignup} />
+                    <Route path="/buyersignin" exact component={BuyerSignIn} />
 
 
 
@@ -33,8 +33,10 @@ class RoutesComponent extends Component {
 
                     {/* Dilusha */}
                     <Route path="/additem" exact component={SellerAddItem} />
-                    <Route path="/sellerprofile" component={SellerProfile} />
                     <Route path="/edititem/:id" component={SellerEditItem} />
+                    <Route path="/sellerprofile" component={SellerProfile} />
+                    <Route path="/sellersignup" exact component={SellerSignup} />
+                    <Route path="/sellersignin" exact component={SellerSignIn} />}
 
 
 
