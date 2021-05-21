@@ -17,6 +17,24 @@ const getByBuyerId = (req, res) => {
         .catch(err => res.json(err));
 }
 
-const get = (req,res) => {
-    
-} 
+const create = async (req,res) => {
+    const newAddress = new address({
+        buyerId: req.body.buyerId,
+        address: req.body.address
+    });
+    await address.save()
+    .then(result => res.status(200).json(result))
+    .catch(err => res.json(err));
+}
+
+const update = async (req,res) => {
+    await address.findOneAndUpdate({_id: req.body.id})
+    .then(result => res.status(200).json(result))
+    .catch(err => res.json(err));
+}
+
+const remove = async (req,res) => {
+    await address.findOneAndRemove({_id:req.body.id})
+    .then(result => res.status(200).json(result))
+    .catch(err => res.json(err));
+}

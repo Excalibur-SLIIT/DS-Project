@@ -3,59 +3,148 @@ const seller = require("../models/seller");
 
 const get = async (req, res) => {
     await seller.find()
-        .then(result => res.json(result))
-        .catch(err => res.json(err));
+        .then(result => {
+            if (Array.isArray(result) && result.length == 0) {
+                res.json({
+                    status: "items not found",
+                });
+            } else {
+                res.json({
+                    status: "available",
+                    count: result.length,
+                    result
+                })
+            }
+        })
+        .catch(err => res.json({
+            status: "error",
+            err
+        }));
 }
 
 const getById = async (req, res) => {
     await seller.findOne({ id: req.params.id })
-        .then(admin => res.json(admin))
-        .catch(err => res.json(err))
+        .then(result => {
+            if (result == null) {
+                res.json({
+                    status: "not found"
+                });
+            } else {
+                res.json({
+                    status: "available",
+                    result
+                })
+            }
+        })
+        .catch(err => {
+            res.json({
+                status: "error",
+                error: err
+            });
+        })
 }
 
 const create = async (req, res) => {
-    const newUser = new seller({
-        username: req.body.username,
-        fname: req.body.fname,
-        lname: req.body.lname,
-        password: req.body.password,
-        companyName: req.body.companyName,
-        email: req.body.email,
-        mobile: req.body.mobile,
-        address: req.body.address
-    });
-    await newUser.save()
-        .then(result => res.status(200).json(result))
-        .catch(err => res.json(err));
+    await seller.findOne({ username: req.body.username })
+        .then(result => {
+            if (result != null) {
+                res.json({
+                    status: "exists"
+                });
+            } else {
+                const newUser = new seller({
+                    username: req.body.username,
+                    fname: req.body.fname,
+                    lname: req.body.lname,
+                    password: req.body.password,
+                    companyName: req.body.companyName,
+                    email: req.body.email,
+                    mobile: req.body.mobile,
+                    address: req.body.address
+                });
+                newUser.save()
+                    .then(result => res.status(200).json({
+                        status: "successful",
+                        result
+                    }))
+                    .catch(err => {
+                        res.json({
+                            status: "error",
+                            error: err
+                        });
+                    });
+            }
+        })
+        .catch(err => {
+            res.json({
+                status: "error",
+                error: err
+            });
+        })
 };
 
 const update = async (req, res) => {
     await seller.findOneAndUpdate({ _id: req.params.id }, req.body).
-        then(result => seller.findOne({ _id: req.params.id }).then(result => res.json(result)))
-        .catch(err => res.json(err));
+    then(result => {
+        if (result == null) {
+            res.json({
+                status: "not found"
+            });
+        } else {
+            buyer.findOne({ _id: req.params.id }).then(result => {
+                res.status(200).json({
+                    status: "susccessful",
+                    result
+                })
+            })
+        }
+    })
+    .catch(err => res.json({
+        status: "error",
+        err
+    }));
 }
 
 const remove = async (req, res) => {
     await seller.findOneAndRemove({ _id: req.params.id })
-        .then(result => res.status(200).json(result))
-        .catch(err => res.json(err).send());
+    .then(result => res.status(200).json({
+        status: "successful",
+        result
+    }))
+    .catch(err => res.json({
+        status: "error",
+        err
+    }));
 };
 
 const login = async (req, res) => {
     await buyer.findOne({ "username": req.body.username })
-        .then(result => {
-            if (result === null) {
-                res.status(404);
-                res.json("User not available");
-            } else if (String(result.password) === req.body.password) {
-                res.status(200);
-                res.json("Successfull");
-            } else {
-                res.status(404);
-                res.json("Login unauthorized");
-            }
-        })
-        .catch(err => res.json(err));
+    .then(result => {
+        if (result === null) {
+            res.status(404);
+            res.json({
+                status: "unsuccessful",
+                description: "User not available"
+            });
+        } else if (String(result.password) === req.body.password) {
+            res.status(200);
+            res.json({
+                status: "Successfull",
+                description: "User found",
+                result
+            });
+        } else {
+            res.status(404);
+            res.json({
+                status: "unsuccessful",
+                description: "Password is wrong, Try again"
+            });
+        }
+    })
+    .catch(err => res.json({
+        status: "error",
+        err
+    }));
 }
 
 module.exports = { get, getById, create, update, remove, login };
