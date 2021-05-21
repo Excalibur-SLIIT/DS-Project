@@ -11,7 +11,7 @@ router.route("/:id").get(controller.getById);
 
 router.route("/").post(controller.create);
 
-router.route("/update/:id").put(controller.update);
+router.route("/:id").put(controller.update);
 
 router.route("/:id").delete(controller.remove);
 

@@ -154,7 +154,7 @@ export default class EditItem extends Component {
 
         console.log(Item);
 
-        axios.post('http://localhost:5000/item/update/' + this.props.id, Item)
+        axios.put('http://localhost:5000/item/' + this.props.id, Item)
             .then(res => console.log(res.data));
 
         window.location = '/sellerprofile';

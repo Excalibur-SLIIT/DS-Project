@@ -16,3 +16,7 @@ const getByBuyerId = (req, res) => {
         })
         .catch(err => res.json(err));
 }
+
+const get = (req,res) => {
+    
+} 
