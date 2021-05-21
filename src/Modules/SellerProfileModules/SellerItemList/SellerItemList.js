@@ -154,15 +154,14 @@ export default class SellerItemList extends Component {
                     <br />
 
                     <div class="row container-fluid">
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-center">
                             <div class="card rounded col col-md-6 col-lg-8 shadow-lg mb-2 m-5 p-4">
 
                                 <div class="card-body p-2 rounded mw-auto">
                                     <div class="d-flex align-items-center p-1 mx-auto">
                                         <div class="content position-absolute top-50 start-50">
                                             <tr>
-
-                                                <div className="col-md-9 d-flex justify-content-start">
+                                                <div className="d-flex justify-content-start p-5">
                                                     <input style={{ width: "200px", marginTop: "10px" }}
                                                         class="form-control"
                                                         type="text"
