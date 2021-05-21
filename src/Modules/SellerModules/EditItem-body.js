@@ -42,7 +42,9 @@ export default class EditItem extends Component {
 
     componentDidMount() {
 
-        axios.get('http://localhost:5000/item/' + this.props._id)
+        console.log(this.props.id);
+
+        axios.get('http://localhost:5000/item/' + this.props.id)
             .then(response => {
 
                 this.setState({

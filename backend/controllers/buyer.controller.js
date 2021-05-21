@@ -1,6 +1,4 @@
-const mongo = require("mongoose");
 const buyer = require("../models/buyer");
-const seller = require("../models/seller");
 
 const get = async (req,res) => {
     await buyer.find()
@@ -30,7 +28,7 @@ const create = async (req,res) => {
 
 const update = async (req,res) => {
     await buyer.findOneAndUpdate({_id: req.params.id},req.body).
-    then(result => seller.findOne({_id: req.params.id}).then(result => res.json(result)))
+    then(result => buyer.findOne({_id: req.params.id}).then(result => res.json(result)))
     .catch(err => res.json(err));
 } 
 

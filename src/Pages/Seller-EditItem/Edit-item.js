@@ -4,11 +4,16 @@ import Header from '../../components/Common/Header/PageHeader'
 import EditItemBody from '../../Modules/SellerModules/EditItem-body'
 
 class AddItem extends Component {
+
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         return (
             <div>
                 <Header />
-                <EditItemBody />
+                <EditItemBody id={this.props.match.params.id} />
                 <Footer />
             </div>
         )

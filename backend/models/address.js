@@ -11,4 +11,4 @@ const Address = new mongo.Schema({
     }
 });
 
-module.exports = mongo.model("Address",Address);
+module.exports = mongo.model("BuyerAddress",Address);
