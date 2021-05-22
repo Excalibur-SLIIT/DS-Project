@@ -27,10 +27,14 @@ class FormModule extends Component {
         }
 
         axios.post('http://localhost:5000/seller/login', seller)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                localStorage.setItem("x-auth-token", res.data.token)
+                window.location = "/sellerprofile"
+            })
             .catch(e => console.log(e));
 
-        window.location = '/sellerprofile'
+
     }
     render() {
         return (

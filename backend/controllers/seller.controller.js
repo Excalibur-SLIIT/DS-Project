@@ -25,6 +25,18 @@ const get = async (req, res) => {
         }));
 }
 
+const getSellerDetails = async (req, res) => {
+    try {
+        //get user details
+        //-password : dont return the pasword
+        const user = await seller.findById(req.user.id).select("-password");
+        res.json(user);
+    } catch {
+        console.log(err.message);
+        res.status(500).send("Server Error");
+    }
+};
+
 const getById = async (req, res) => {
     await seller.findOne({ id: req.params.id })
         .then(result => {
@@ -107,7 +119,7 @@ const update = async (req, res) => {
                     status: "not found"
                 });
             } else {
-                buyer.findOne({ _id: req.params.id }).then(result => {
+                seller.findOne({ _id: req.params.id }).then(result => {
                     res.status(200).json({
                         status: "susccessful",
                         result
@@ -172,4 +184,4 @@ const login = async (req, res) => {
         }));
 }
 
-module.exports = { get, getById, create, update, remove, login };
+module.exports = { get, getById, create, update, remove, login, getSellerDetails };
