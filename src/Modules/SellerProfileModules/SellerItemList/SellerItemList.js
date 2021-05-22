@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Item = props => (
+const Item = (props) => (
     <tr>
         <td>{props.items.brand}</td>
         <td>{props.items.colour}</td>
@@ -16,64 +16,73 @@ const Item = props => (
         <td>{props.items.battery}</td>
         <td>{props.items.price}</td>
         <td>
-            <button className='edit'><Link to={"/edititem/" + props.items._id} className="link">Edit</Link></button> <button className='delete' onClick={() => { props.deleteItem(props.items._id) }}>Delete</button>
+            <button className="edit">
+                <Link to={"/edititem/" + props.items._id} className="link">
+                    Edit
+        </Link>
+            </button>{" "}
+            <button
+                className="delete"
+                onClick={() => {
+                    props.deleteItem(props.items._id);
+                }}
+            >
+                Delete
+      </button>
         </td>
-    </tr >
-)
+    </tr>
+);
 
 export default class SellerItemList extends Component {
-
     constructor(props) {
-
         super(props);
-
         this.deleteItem = this.deleteItem.bind(this);
-
         this.state = {
             items: [],
-            searchItem: ""
+            searchItem: "",
         };
-
     }
 
-
-
     componentDidMount() {
-
-        axios.get('http://localhost:5000/item/')
-            .then(response => {
-
-                this.setState({ items: response.data })
+        axios
+            .get("http://localhost:5000/item/")
+            .then((response) => {
+                this.setState({ items: response.data });
                 console.log(response.data);
             })
             .catch((error) => {
-
                 console.log(error);
-            })
+            });
     }
 
     deleteItem(id) {
-
-        axios.delete('http://localhost:5000/item/' + id)
-            .then(res => console.log(res.data));
+        axios
+            .delete("http://localhost:5000/item/" + id)
+            .then((res) => console.log(res.data));
 
         this.setState({
-
-            items: this.state.items.filter(el => el._id !== id)
-        })
+            items: this.state.items.filter((el) => el._id !== id),
+        });
     }
 
     itemList() {
-        return this.state.items.map(currentItems => {
-            return <Item items={currentItems} deleteItem={this.deleteItem} key={currentItems._id} />;
-        })
+        return this.state.items.map((currentItems) => {
+            return (
+                <Item
+                    items={currentItems}
+                    deleteItem={this.deleteItem}
+                    key={currentItems._id}
+                />
+            );
+        });
     }
 
     searchItemList() {
-
         return this.state.items.map((currentItems) => {
             if (
-                (currentItems.brand.toLowerCase().includes(this.state.searchItem.toLowerCase()))
+                currentItems.brand
+                    .toLowerCase()
+                    .includes(this.state.searchItem.toLowerCase())
             ) {
                 return (
                     <div class="p-4">
@@ -99,7 +108,7 @@ export default class SellerItemList extends Component {
                                                 className="link"
                                             >
                                                 Edit
-                                </Link>
+                      </Link>
                                         </button>
                                     }
                                 </div>
@@ -133,7 +142,7 @@ export default class SellerItemList extends Component {
                                             }}
                                         >
                                             Delete
-                        </button>
+                    </button>
                                     }
                                 </div>
                             </td>
@@ -147,7 +156,6 @@ export default class SellerItemList extends Component {
     render() {
         return (
             <div>
-
                 <div class="container">
                     <h1>Item List</h1>
                     <br />
@@ -155,20 +163,20 @@ export default class SellerItemList extends Component {
                     <div class="row container-fluid">
                         <div class="d-flex justify-content-center">
                             <div class="card rounded col col-md-6 col-lg-8 shadow-lg mb-2 m-5 p-4">
-
                                 <div class="card-body p-2 rounded mw-auto">
                                     <div class="d-flex align-items-center p-1 mx-auto">
                                         <div class="content position-absolute top-50 start-50">
                                             <tr>
                                                 <div className="d-flex justify-content-start p-5">
-                                                    <input style={{ width: "200px", marginTop: "10px" }}
+                                                    <input
+                                                        style={{ width: "200px", marginTop: "10px" }}
                                                         class="form-control"
                                                         type="text"
                                                         placeholder="Search by Brand Name"
                                                         aria-label="Search"
                                                         onChange={(e) => {
                                                             this.setState({
-                                                                searchItem: e.target.value
+                                                                searchItem: e.target.value,
                                                             });
                                                         }}
                                                     />
@@ -190,29 +198,26 @@ export default class SellerItemList extends Component {
                                                             <th className="tbhead">Battery</th>
                                                             <th className="tbhead">Price</th>
                                                             <th className="tbhead">Action</th>
-
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {this.state.searchItem == "" ? this.itemList() : this.searchItemList()}
+                                                        {this.state.searchItem == ""
+                                                            ? this.itemList()
+                                                            : this.searchItemList()}
                                                     </tbody>
                                                 </table>
-
                                             </tr>
-
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
-                </div >
+                </div>
 
-                <br /><br />
-
-            </div >
-        )
+                <br />
+                <br />
+            </div>
+        );
     }
 }

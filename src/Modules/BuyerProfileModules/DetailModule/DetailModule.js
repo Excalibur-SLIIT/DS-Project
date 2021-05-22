@@ -1,6 +1,41 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 class DetailModule extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: "",
+            fname: "",
+            lname: "",
+            email: "",
+            mobile: "",
+            address: ""
+        }
+    }
+
+    componentDidMount() {
+        const config = {
+            headers: {
+                "x-auth-token": localStorage.getItem("x-auth-token")
+            }
+        }
+
+        axios.post("http://localhost:5000/buyer/auth", "", config).then((res) => {
+            this.setState({
+                username: res.data.username,
+                password: res.data.password,
+                fname: res.data.fname,
+                lname: res.data.lname,
+                email: res.data.email,
+                mobile: res.data.mobile,
+                address: res.data.address
+            })
+        }).catch((err) => {})
+
+    }
     render() {
         return (
             <div>
@@ -12,29 +47,27 @@ class DetailModule extends Component {
                             <div class="row">
                                 <div style={{ width: '50%', margin: 'auto' }}>
                                     <div class="col-sm-7" style={{ width: '100.3333333%' }}>
-                                        <h1 style={{ textAlign: 'center' }}>Username</h1>
+                                        <h1 style={{ textAlign: 'center' }}>{this.state.username}</h1>
                                         <br />
                                         <hr />
                                         <br />
                                         <h3>Profile Details</h3>
                                         <br />
                                         <div class="row specification">
-                                            <div class="col-sm-6">
-                                                <label>First Name</label>
-                                            </div>
-                                            <div class="col-sm-6"> <p>fname</p> </div>
+                                            <div class="col-sm-6"><label>First Name</label></div>
+                                            <div class="col-sm-6"> <p>{this.state.fname}</p> </div>
                                         </div>
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Last Name</label> </div>
-                                            <div class="col-sm-6"> <p>lname</p> </div>
+                                            <div class="col-sm-6"> <p>{this.state.lname}</p> </div>
                                         </div>
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Email</label> </div>
-                                            <div class="col-sm-6"> <p>email</p> </div>
+                                            <div class="col-sm-6"> <p>{this.state.email}</p> </div>
                                         </div>
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Mobile</label> </div>
-                                            <div class="col-sm-6"> <p>mobile</p> </div>
+                                            <div class="col-sm-6"> <p>{this.state.mobile}</p> </div>
                                         </div>
                                     </div>
                                 </div>
