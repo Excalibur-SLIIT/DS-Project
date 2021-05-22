@@ -5,7 +5,6 @@ export default class SellerDetails extends Component {
         return (
             <div>
 
-
             <hr class="offset-lg"></hr>
 
             <div class="product">

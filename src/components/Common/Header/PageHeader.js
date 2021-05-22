@@ -23,6 +23,8 @@ class PageHeader extends Component {
                                 <li><a href="store">Store</a></li>
                                 <li><a href="/sellerprofile">Seller A/C</a></li>
                                 <li><a href="/additem">Add Item</a></li>
+                                <li><a href="/buyerprofile">Buyer A/C</a></li>
+                                <li><a href="/buyereditprofile">Buyer A/C Edit</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 {/* <li><a href="/signin"> <i class="ion-android-person"></i> Login </a></li> */}
