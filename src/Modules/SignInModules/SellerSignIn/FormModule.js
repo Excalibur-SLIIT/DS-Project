@@ -29,6 +29,8 @@ class FormModule extends Component {
         axios.post('http://localhost:5000/seller/login', seller)
             .then(res => console.log(res.data))
             .catch(e => console.log(e));
+
+        window.location = '/sellerprofile'
     }
     render() {
         return (
@@ -49,7 +51,7 @@ class FormModule extends Component {
                                 <br />
                                 <br />
                                 <p>
-                                    Don't have an account? Create one now! <a href="#signup"> Sign Up</a>
+                                    Don't have an account? Create one now! <a href="/sellersignup"> Sign Up</a>
                                 </p>
                             </form>
                         </div>
