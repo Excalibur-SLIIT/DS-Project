@@ -24,6 +24,10 @@ const Buyer = new mongo.Schema({
     mobile: {
         type: String,
         require: true
+    },
+    address: {
+        type: String,
+        require: true
     }
 },{
     timestamps: true

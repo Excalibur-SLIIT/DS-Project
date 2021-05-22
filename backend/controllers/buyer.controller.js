@@ -74,7 +74,8 @@ const create = async (req, res) => {
                     fname: req.body.fname,
                     lname: req.body.lname,
                     email: req.body.email,
-                    mobile: req.body.mobile
+                    mobile: req.body.mobile,
+                    address: req.body.address
                 });
                 newUser.save()
                     .then(() => {
