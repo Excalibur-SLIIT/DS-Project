@@ -15,6 +15,7 @@ import BuyerProfile from '../Pages/BuyerProfile/BuyerProfile';
 import BuyerEditProfile from '../Pages/BuyerEditProfile/BuyerEditProfile';
 import SellerSignIn from '../Pages/SignIn/SellerSignIn/SignIn';
 import BuyerSignIn from '../Pages/SignIn/BuyerSignIn/SignIn';
+import SellerEditProfile from '../Pages/SellerEditProfile/SellerEditProfile';
 
 class RoutesComponent extends Component {
     render() {
@@ -42,6 +43,7 @@ class RoutesComponent extends Component {
                     <Route path="/sellerprofile" component={SellerProfile} />
                     <Route path="/sellersignup" exact component={SellerSignup} />
                     <Route path="/sellersignin" exact component={SellerSignIn} />
+                    <Route path="/selleredit" exact component={SellerEditProfile} />
 
 
 
