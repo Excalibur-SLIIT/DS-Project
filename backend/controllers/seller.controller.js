@@ -143,15 +143,12 @@ const login = async (req, res) => {
                     description: "User not available"
                 });
             } else if (String(result.password) === req.body.password) {
-
                 //Return jsonwebtoken
-
                 const payload = {
                     user: {
                         id: result.id,
                     },
                 };
-
                 jwt.sign(
                     payload,
                     config.get("jwtSecret"),
@@ -161,7 +158,6 @@ const login = async (req, res) => {
                         res.json({ token });
                     }
                 );
-
             } else {
                 res.status(404);
                 res.json({

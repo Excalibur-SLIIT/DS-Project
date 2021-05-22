@@ -1,4 +1,8 @@
 const buyer = require("../models/buyer");
+const mongo = require("mongoose");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 
 const get = async (req, res) => {
     await buyer.find()
@@ -52,18 +56,31 @@ const create = async (req, res) => {
                 });
             } else {
                 const newUser = new buyer({
-                    username: String(req.body.username),
+                    username: req.body.username,
                     password: req.body.password,
                     fname: req.body.fname,
                     lname: req.body.lname,
                     email: req.body.email,
-                    mobile: Number(req.body.mobile)
+                    mobile: req.body.mobile
                 });
                 newUser.save()
-                    .then(result => res.status(200).json({
-                        status: "successful",
-                        result
-                    }))
+                    .then(() => {
+                        //Return jsonwebtoken
+                        const payload = {
+                            user: {
+                                id: newUser.id,
+                            },
+                        };
+                        jwt.sign(
+                            payload,
+                            config.get("jwtSecret"),
+                            { expiresIn: 360000 },
+                            (err, token) => {
+                                if (err) throw err;
+                                res.json({ token });
+                            }
+                        );
+                    })
                     .catch(err => {
                         res.json({
                             status: "error",
@@ -126,12 +143,21 @@ const login = async (req, res) => {
                     description: "User not available"
                 });
             } else if (String(result.password) === req.body.password) {
-                res.status(200);
-                res.json({
-                    status: "Successfull",
-                    description: "User found",
-                    result
-                });
+                //Return jsonwebtoken
+                const payload = {
+                    user: {
+                        id: result.id,
+                    },
+                };
+                jwt.sign(
+                    payload,
+                    config.get("jwtSecret"),
+                    { expiresIn: 360000 },
+                    (err, token) => {
+                        if (err) throw err;
+                        res.json({ token });
+                    }
+                );
             } else {
                 res.status(404);
                 res.json({
