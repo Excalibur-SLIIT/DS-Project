@@ -25,9 +25,9 @@ class PageHeader extends Component {
                                 <li><a href="/additem">Add Item</a></li>
                                 <li><a href="/buyerprofile">Buyer A/C</a></li>
                                 <li><a href="/buyereditprofile">Buyer A/C Edit</a></li>
+                                <li><a href="/productprofile">Product Profile</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                {/* <li><a href="/signin"> <i class="ion-android-person"></i> Login </a></li> */}
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In<span class="caret"></span></a>
                                     <ul class="dropdown-menu">

@@ -17,7 +17,8 @@ class FormModule extends Component {
                                 <br />
                                 <button type="submit" class="btn btn-primary">Sign In</button>
                                 <a href="#forgin-password" data-action="Forgot-Password" class="xs-margin">Forgot Password</a>
-                                <br /><br />
+                                <br />
+                                <br />
                                 <p>
                                     Don't have an account? Create one now! <a href="#signup"> Sign Up</a>
                                 </p>
@@ -25,7 +26,8 @@ class FormModule extends Component {
                         </div>
                     </div>
                 </div>
-                <br /><br />
+                <br />
+                <br />
                 <br class="hidden-xs" />
                 <br class="hidden-xs" />
             </div>

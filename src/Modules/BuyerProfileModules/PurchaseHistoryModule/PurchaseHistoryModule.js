@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class PurchaseHistoryModule extends Component {
+
     render() {
         return (
             <div>
@@ -54,6 +55,7 @@ class PurchaseHistoryModule extends Component {
                                                         <h2 class="h4 media-heading">iPad Air</h2>
                                                         <label>Tablets</label>
                                                         <p class="price">$449.99</p>
+                                                        
                                                     </div>
                                                     <div class="controls">
                                                         <a> <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
