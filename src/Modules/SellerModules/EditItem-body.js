@@ -67,7 +67,6 @@ export default class EditItem extends Component {
                 console.log(error);
             })
 
-
     }
 
     onChangeSellerId(event) {
