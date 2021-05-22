@@ -49,7 +49,7 @@ class FormModule extends Component {
                                 <br />
                                 <br />
                                 <p>
-                                    Don't have an account? Create one now! <a href="#signup"> Sign Up</a>
+                                    Don't have an account? Create one now! <a href="/buyersignup"> Sign Up</a>
                                 </p>
                             </form>
                         </div>
