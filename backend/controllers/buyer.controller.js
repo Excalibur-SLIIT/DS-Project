@@ -25,6 +25,19 @@ const get = async (req, res) => {
         }));
 }
 
+//get Buyer details by JWT token
+const getBuyerDetails = async (req, res) => {
+    try {
+        //get user details
+        //-password : dont return the pasword
+        const user = await buyer.findById(req.user.id).select("-password");
+        res.json(user);
+    } catch {
+        console.log(err.message);
+        res.status(500).send("Server Error");
+    }
+};
+
 const getById = async (req, res) => {
     await buyer.findOne({ _id: req.params.id })
         .then(result => {
@@ -172,4 +185,4 @@ const login = async (req, res) => {
         }));
 }
 
-module.exports = { get, getById, create, update, remove, login };
+module.exports = { get, getById, create, update, remove, login, getBuyerDetails };

@@ -1,6 +1,35 @@
 import React, { Component } from 'react'
+import axios from "axios";
 
 class PageHeader extends Component {
+
+    constructor(props) {
+
+        super(props);
+        this.state = {
+            user: null
+        }
+
+    }
+
+    componentDidMount() {
+
+        const config = {
+            headers: {
+                "x-auth-token": localStorage.getItem("x-auth-token")
+            }
+        }
+
+        axios.post("http://localhost:5000/buyer/auth", "", config).then((res) => {
+            this.setState({ user: res.data.username })
+        }).catch((err) => {
+            axios.post("http://localhost:5000/seller/auth", "", config).then((res) => {
+                this.setState({ user: res.data.username })
+            })
+        })
+
+    }
+
     render() {
         return (
             <div>
@@ -27,22 +56,31 @@ class PageHeader extends Component {
                                 <li><a href="/buyereditprofile">Buyer A/C Edit</a></li>
                                 <li><a href="/productprofile">Product Profile</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/buyersignin">Sign In As A Buyer</a></li>
-                                        <li><a href="/sellersignin">Sign In As A Seller</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/buyersignup">Sign Up As A Buyer</a></li>
-                                        <li><a href="/sellersignup">Sign Up As A Seller</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+
+                            {this.state.user ? <>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {this.state.user}
+                                    <span class="caret"></span>
+                                </a> <button onClick={() => { localStorage.removeItem("x-auth-token"); window.location = "/" }}>Sign Out</button></> :
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/buyersignin">Sign In As A Buyer</a></li>
+                                            <li><a href="/sellersignin">Sign In As A Seller</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/buyersignup">Sign Up As A Buyer</a></li>
+                                            <li><a href="/sellersignup">Sign Up As A Seller</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            }
+
                         </div>
                     </div>
                 </nav>
