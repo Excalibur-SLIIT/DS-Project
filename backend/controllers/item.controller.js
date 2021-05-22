@@ -28,6 +28,7 @@ const create = async (req, res) => {
         power: req.body.power,
         battery: req.body.battery,
         price: req.body.price,
+        image: req.file
     });
     await newItem.save()
         .then(result => res.status(200).json(result))

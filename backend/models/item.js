@@ -54,6 +54,9 @@ exports.Item = new mongo.Schema({
         type: Number,
         require: true
     },
+    image: {
+        type: Object
+    }
 
 }, {
     timestamps: true

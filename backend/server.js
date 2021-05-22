@@ -13,7 +13,6 @@ const buyerRoute = require("./routes/buyer.routes");
 const itemRoute = require("./routes/item.routes");
 const cartsRoute = require("./routes/carts.routes")
 const checkoutRoute = require("./routes/chekout.routes");
-const upload = require("./controllers/image.controller").upload;
 const imageRouter = require("./controllers/image.controller").router;
 
 //----------------------------------------------
