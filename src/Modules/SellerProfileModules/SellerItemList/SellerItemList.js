@@ -90,7 +90,6 @@ export default class SellerItemList extends Component {
                             <td style={{ width: "20%" }}>{currentItems.battery}</td>
                             <td style={{ width: "20%" }}>{currentItems.price}</td>
 
-
                             <td style={{ width: "20%" }}>
                                 <div class="row">
                                     {
@@ -199,7 +198,6 @@ export default class SellerItemList extends Component {
                                                     </tbody>
                                                 </table>
 
-
                                             </tr>
 
                                         </div>
@@ -212,12 +210,7 @@ export default class SellerItemList extends Component {
                     </div>
                 </div >
 
-
-
                 <br /><br />
-
-
-
 
             </div >
         )
