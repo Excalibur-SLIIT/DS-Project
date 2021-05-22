@@ -31,7 +31,7 @@ export default class SellerDetails extends Component {
                                             <div class="col-sm-6">
                                                 <label>Operating system</label>
                                             </div>
-                                            <div class="col-sm-6"> <p>Chrome OS™</p> </div>
+                                            <div class="col-sm-6"> <p>Windows</p> </div>
                                         </div>
 
                                         <div class="row specification">
