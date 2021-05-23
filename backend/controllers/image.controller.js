@@ -13,9 +13,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});
 
-router.route("/").post(upload.single("image"),(req,res) => {
-    res.send(path.join(__dirname,req.file.path));
-});
+const create = (req,res) => {
+    res.send(req.file);
+};
 
 
-module.exports = { upload, router };
+module.exports = { create };
