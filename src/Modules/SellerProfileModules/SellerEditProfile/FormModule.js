@@ -6,14 +6,8 @@ class FormModule extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangeFname = this.onChangeFname.bind(this);
-        this.onChangeLname = this.onChangeLname.bind(this);
-        this.onChangeCompany = this.onChangeCompany.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangeMobile = this.onChangeMobile.bind(this);
-        this.onChangeAddress = this.onChangeAddress.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onValueChange = this.onValueChange.bind(this);
+        this.onUpdate = this.onUpdate.bind(this);
 
         this.state = {
             username: "",
@@ -23,9 +17,10 @@ class FormModule extends Component {
             email: "",
             mobile: "",
             address: "",
-            password: ""
         }
     }
+
+    onValueChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     componentDidMount() {
         const config = {
@@ -36,7 +31,7 @@ class FormModule extends Component {
 
         axios.post("http://localhost:5000/seller/auth", "", config).then((res) => {
             this.setState({
-
+                id: res.data._id,
                 username: res.data.username,
                 fname: res.data.fname,
                 lname: res.data.lname,
@@ -44,60 +39,16 @@ class FormModule extends Component {
                 email: res.data.email,
                 mobile: res.data.mobile,
                 address: res.data.address,
-                password: res.data.password,
-
             })
         }).catch((err) => { })
 
     }
 
-    onChangeUsername(event) {
-        this.setState({
-            username: event.target.value
-        });
-    }
-    onChangeFname(event) {
-        this.setState({
-            fname: event.target.value
-        });
-    }
-    onChangeLname(event) {
-        this.setState({
-            lname: event.target.value
-        });
-    }
-    onChangeCompany(event) {
-        this.setState({
-            companyName: event.target.value
-        });
-    }
-    onChangeEmail(event) {
-        this.setState({
-            email: event.target.value
-        });
-    }
-    onChangeMobile(event) {
-        this.setState({
-            mobile: event.target.value
-        });
-    }
-    onChangeAddress(event) {
-        this.setState({
-            address: event.target.value
-        });
-    }
-    onChangePassword(event) {
-        this.setState({
-            password: event.target.value
-        });
-    }
-
-    onSubmit(e) {
+    onUpdate(e) {
 
         e.preventDefault();
 
-        const Seller = {
-
+        const seller = {
             username: this.state.username,
             fname: this.state.fname,
             lname: this.state.lname,
@@ -105,18 +56,14 @@ class FormModule extends Component {
             email: this.state.email,
             mobile: this.state.mobile,
             address: this.state.address,
-            password: this.state.password,
-
         }
 
-        console.log(Seller);
+        axios.put('http://localhost:5000/seller/' + this.state.id, seller)
+            .then(res => console.log(res.data))
+            .catch(e => console.log(e));
 
-        axios.post("http://localhost:5000/seller/auth", "", Seller)
-            .then(res => console.log(res.data));
-
-        window.location = '../sellerprofile';
+        window.location = "./sellerprofile";
     }
-
 
 
     render() {
@@ -129,7 +76,7 @@ class FormModule extends Component {
                         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 md-padding">
                             <h1 class="align-center">Seller Edit Pofile</h1>
                             <br />
-                            <form class="join" onSubmit={this.onSubmit}>
+                            <form class="join" onSubmit={this.onUpdate}>
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -139,7 +86,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.username}
-                                                onChange={this.onChangeUsername}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -149,7 +96,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.fname}
-                                                onChange={this.onChangeFname}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -159,7 +106,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.lname}
-                                                onChange={this.onChangeLname}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -169,7 +116,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.companyName}
-                                                onChange={this.onChangeCompany}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -179,7 +126,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.mobile}
-                                                onChange={this.onChangeMobile}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -189,7 +136,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.email}
-                                                onChange={this.onChangeEmail}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                         <div class="col-sm-12">
@@ -199,17 +146,7 @@ class FormModule extends Component {
                                                 required=""
                                                 class="form-control"
                                                 value={this.state.address}
-                                                onChange={this.onChangeAddress}
-                                            /><br />
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <input type="password"
-                                                name="password"
-                                                placeholder="Password"
-                                                required=""
-                                                class="form-control"
-                                                value={this.state.password}
-                                                onChange={this.onChangePassword}
+                                                onChange={(e) => { this.onValueChange(e); }}
                                             /><br />
                                         </div>
                                     </div>
