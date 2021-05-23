@@ -1,6 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class PurchaseHistoryModule extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            buyerid: "",
+            itemid: ""
+        }
+    }
+
+    componentDidMount() {
+        const config = {
+            headers: {
+                "x-auth-token": localStorage.getItem("x-auth-token")
+            }
+        }
+
+        axios.post("http://localhost:5000/history/auth", "", config)
+            .then((res) => {
+                console.log(res.data)
+            }).catch((err) => { })
+
+    }
+
 
     render() {
         return (
@@ -22,7 +46,7 @@ class PurchaseHistoryModule extends Component {
                                                         </a>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h2 class="h4 media-heading">HP Chromebook 11</h2>
+                                                        <h2 class="h4 media-heading">{this.state.buyerid}</h2>
                                                         <label>Laptops</label>
                                                         <p class="price">$199.99</p>
                                                     </div>
@@ -55,7 +79,7 @@ class PurchaseHistoryModule extends Component {
                                                         <h2 class="h4 media-heading">iPad Air</h2>
                                                         <label>Tablets</label>
                                                         <p class="price">$449.99</p>
-                                                        
+
                                                     </div>
                                                     <div class="controls">
                                                         <a> <i class="iconify" data-icon="clarity:success-standard-solid" data-inline="false"></i>DONE</a>
