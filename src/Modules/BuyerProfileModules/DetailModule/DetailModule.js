@@ -31,7 +31,7 @@ class DetailModule extends Component {
                 lname: res.data.lname,
                 email: res.data.email,
                 mobile: res.data.mobile,
-                address: res.data.address
+                address: res.data.address,
             })
         }).catch((err) => {})
 
@@ -69,6 +69,10 @@ class DetailModule extends Component {
                                             <div class="col-sm-6"> <label>Mobile</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.mobile}</p> </div>
                                         </div>
+                                        <div class="row specification">
+                                            <div class="col-sm-6"> <label>Address</label> </div>
+                                            <div class="col-sm-6"> <p>{this.state.address}</p> </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +81,7 @@ class DetailModule extends Component {
                                 <div style={{ width: '50%', margin: 'auto' }}>
                                     <div class="col-sm-7" style={{ width: '100.3333333%' }}>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
-                                            <a href="#Update" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
+                                            <a href="/buyereditprofile" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
                                         </div>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
                                             <a href="#Remove" class="btn btn-primary btn-lg justify"><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>

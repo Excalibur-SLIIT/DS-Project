@@ -54,44 +54,35 @@ export default class SellerDetails extends Component {
                                         <br />
                                         <hr />
                                         <br />
-
                                         <h3>Profile Details</h3>
                                         <br />
                                         <div class="row specification">
                                             <div class="col-sm-6"><label>First Name</label></div>
                                             <div class="col-sm-6"> <p>{this.state.fname}</p> </div>
                                         </div>
-
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Last Name</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.lname}</p> </div>
                                         </div>
-
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Company</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.companyName}</p> </div>
                                         </div>
-
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Email</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.email}</p> </div>
                                         </div>
-
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Mobile</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.mobile}</p> </div>
                                         </div>
-
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Address</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.address}</p> </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
-
                             <br /><br />
                             <div class="row">
                                 <div style={{ width: '50%', margin: 'auto' }}>
@@ -105,16 +96,10 @@ export default class SellerDetails extends Component {
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
                         </div>
                     </div>
                 </div>
                 <br /><br />
-
             </div>
         )
     }
