@@ -23,7 +23,7 @@ router.route("/seller/:id").get(controller.getItemsBySellerId);
 
 router.route("/:id").get(controller.getById);
 
-router.route("/",authSeller).post(authSeller,upload.single("image"),controller.create);
+router.route("/").post(authSeller,controller.create);
 
 router.route("/:id").put(controller.update);
 

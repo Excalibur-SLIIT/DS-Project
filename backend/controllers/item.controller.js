@@ -15,7 +15,7 @@ const getById = async (req, res) => {
 
 const create = async (req, res) => {
     const newItem = new item({
-        sellerId: req.body.sellerId,
+        sellerId: req.user.id,
         name: req.body.name,
         brand: req.body.brand,
         colour: req.body.colour,
@@ -28,7 +28,7 @@ const create = async (req, res) => {
         power: req.body.power,
         battery: req.body.battery,
         price: req.body.price,
-        image: req.file
+        image: req.body.image
     });
     await newItem.save()
         .then(result => res.status(200).json(result))
