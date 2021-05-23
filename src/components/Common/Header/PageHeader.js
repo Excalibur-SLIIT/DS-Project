@@ -51,9 +51,7 @@ class PageHeader extends Component {
                                 <li><a href="/checkout">Checkout</a></li>
                                 <li><a href="store">Store</a></li>
                                 <li><a href="/sellerprofile">Seller A/C</a></li>
-                                <li><a href="/additem">Add Item</a></li>
-                                <li><a href="/buyerprofile">Buyer A/C</a></li>
-                                <li><a href="/buyereditprofile">Buyer A/C Edit</a></li>
+                                <li><a href="/additem">Seller Add Item</a></li>
                                 <li><a href="/productprofile">Product Profile</a></li>
                             </ul>
 
