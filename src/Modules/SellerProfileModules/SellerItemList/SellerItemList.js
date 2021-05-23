@@ -159,6 +159,7 @@ export default class SellerItemList extends Component {
                 <div class="container">
                     <h1>Item List</h1>
                     <br />
+                    {/* <img src="http://localhost:5000/images/item-image/image-1621784967701" /> */}
 
                     <div class="row container-fluid">
                         <div class="d-flex justify-content-center">

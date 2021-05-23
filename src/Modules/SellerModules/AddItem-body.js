@@ -6,6 +6,7 @@ export class Additem extends Component {
     constructor(props) {
         super(props);
 
+        this.onChangeSellerId = this.onChangeSellerId.bind(this);
         this.onChangeBrand = this.onChangeBrand.bind(this);
         this.onChangeColour = this.onChangeColour.bind(this);
         this.onChangeOS = this.onChangeOS.bind(this);
@@ -33,6 +34,7 @@ export class Additem extends Component {
             power: '',
             battery: '',
             price: '',
+            selectedFile: null
 
 
         }
@@ -99,14 +101,45 @@ export class Additem extends Component {
             price: event.target.value
         });
     }
+    onFileChange = event => {
+        // Update the state
+        this.setState({ selectedFile: event.target.files[0] });
 
+    }
 
     onSubmit(event) {
 
         event.preventDefault();
 
-        const item = {
+        var image = null
 
+        const formData = new FormData();
+
+        formData.append(
+            "image",
+            this.state.selectedFile
+
+        );
+
+
+
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
+
+
+        axios.post('http://localhost:5000/image', formData, config)
+            .then(res => {
+                console.log(res)
+                image = res.data
+            }
+            );
+
+        // window.location = "/sellerprofile";
+
+        const item = {
             sellerId: this.state.sellerId,
             brand: this.state.brand,
             colour: this.state.colour,
@@ -119,16 +152,19 @@ export class Additem extends Component {
             power: this.state.power,
             battery: this.state.battery,
             price: this.state.price,
+            image: image
+
 
         }
 
-        axios.post('http://localhost:5000/item/', item)
-            .then(res => console.log(item)
+        const itemConfig = {
+            headers: {
+                "x-auth-token": localStorage.getItem("x-auth-token")
+            }
+        }
 
-            );
-
-        window.location = "/sellerprofile";
-
+        axios.post('http://localhost:5000/item', item, itemConfig)
+            .then(res => console.log(res.data));
 
     }
 
@@ -271,6 +307,10 @@ export class Additem extends Component {
                                                 value={this.state.price}
                                                 onChange={this.onChangePrice}
                                             /><br />
+                                        </div>
+                                        <div className="col-sm-12">
+                                            <input type="file" onChange={this.onFileChange} />
+
                                         </div>
                                     </div>
                                 </div>
