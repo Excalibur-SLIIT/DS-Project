@@ -6,6 +6,7 @@ class DetailModule extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: "",
             username: "",
             password: "",
             fname: "",
@@ -25,6 +26,7 @@ class DetailModule extends Component {
 
         axios.post("http://localhost:5000/buyer/auth", "", config).then((res) => {
             this.setState({
+                id: res.data._id,
                 username: res.data.username,
                 password: res.data.password,
                 fname: res.data.fname,
@@ -34,8 +36,16 @@ class DetailModule extends Component {
                 address: res.data.address,
             })
         }).catch((err) => { })
-
     }
+
+    onDelete() {
+        axios.delete("http://localhost:5000/buyer/" + this.state.id)
+            .then((res) => {
+                localStorage.removeItem("x-auth-token");
+                window.location = "/";
+            }).catch((err) => { })
+    }
+
     render() {
         return (
             <div>
@@ -84,7 +94,7 @@ class DetailModule extends Component {
                                             <a href="/buyereditprofile" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
                                         </div>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
-                                            <a href="#Remove" class="btn btn-primary btn-lg justify" onClick={() => { localStorage.removeItem("x-auth-token"); window.location = "/" }}><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>
+                                            <a onClick={()=>this.onDelete(this.state.id)} href="#Remove" class="btn btn-primary btn-lg justify"><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>
                                         </div>
                                     </div>
                                 </div>
