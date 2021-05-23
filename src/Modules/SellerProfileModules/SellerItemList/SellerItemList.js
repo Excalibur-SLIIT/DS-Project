@@ -34,9 +34,7 @@ const Item = (props) => (
 );
 
 export default class SellerItemList extends Component {
-
     constructor(props) {
-
         super(props);
         this.deleteItem = this.deleteItem.bind(this);
         this.state = {

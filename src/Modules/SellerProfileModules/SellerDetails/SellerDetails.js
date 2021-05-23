@@ -50,7 +50,7 @@ export default class SellerDetails extends Component {
                             <div class="row">
                                 <div style={{ width: '50%', margin: 'auto' }}>
                                     <div class="col-sm-7" style={{ width: '100.3333333%' }}>
-                                        <h1 style={{ textAlign: 'center' }}>{this.state.username}</h1>
+                                        <h1 style={{ textAlign: 'center' }}>Welcome {this.state.username}</h1>
                                         <br />
                                         <hr />
                                         <br />
@@ -91,7 +91,7 @@ export default class SellerDetails extends Component {
                                             <a href="/selleredit" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
                                         </div>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
-                                            <a href="#Remove" class="btn btn-primary btn-lg justify"><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>
+                                            <a href="#Remove" class="btn btn-primary btn-lg justify" onClick={() => { localStorage.removeItem("x-auth-token"); window.location = "/" }}><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>
                                         </div>
                                     </div>
                                 </div>
