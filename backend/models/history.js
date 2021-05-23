@@ -6,8 +6,12 @@ const History = mongo.Schema({
         type: String,
         require: true
     },
+    sellerId: {
+        type: String,
+        require: true
+    },
     item: {
-        type: item,
+        type: String,
         require: true
     },
     date: {
@@ -19,10 +23,6 @@ const History = mongo.Schema({
         require: true
     },
     deliverable: {
-        type: Boolean,
-        require: true
-    },
-    address: {
         type: String,
         require: true
     },

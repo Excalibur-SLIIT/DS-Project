@@ -13,6 +13,12 @@ const getById = async (req,res) => {
     .catch(err => res.json(err))
 }
 
+const getByBuyerId = async (req,res) => {
+    await history.findOne({buyerId : req.user.id})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}
+
 const create = async (req,res) => {
     const newItem = new history({
         buyerId: req.body.buyerId,
@@ -46,4 +52,4 @@ const searchByName = async (req,res) => {
     .catch(err => res.json(err));
 };
 
-module.exports = {get, getById, create, update, remove};
+module.exports = {get, getById, create, update, remove, getByBuyerId};
