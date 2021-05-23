@@ -13,7 +13,7 @@ const buyerRoute = require("./routes/buyer.routes");
 const itemRoute = require("./routes/item.routes");
 const cartsRoute = require("./routes/carts.routes")
 const checkoutRoute = require("./routes/chekout.routes");
-const imageRouter = require("./controllers/image.controller").router;
+const historyRoute = require("./routes/history.routes");
 
 //----------------------------------------------
 app.use(express.json());
@@ -39,8 +39,8 @@ app.use("/seller", sellerRoute);
 app.use("/buyer", buyerRoute);
 app.use("/item", itemRoute);
 app.use("/carts", cartsRoute);
-app.use("/checkout", checkoutRoute)
-app.use("/image", imageRouter)
+app.use("/checkout", checkoutRoute);
+app.use("/history", historyRoute);
 
 app.listen(port,() => {
     console.log(`server started on port ${port}`);
