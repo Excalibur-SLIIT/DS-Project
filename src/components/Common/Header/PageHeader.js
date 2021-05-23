@@ -58,10 +58,17 @@ class PageHeader extends Component {
                             </ul>
 
                             {this.state.user ? <>
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    {this.state.user}
-                                    <span class="caret"></span>
-                                </a> <button onClick={() => { localStorage.removeItem("x-auth-token"); window.location = "/" }}>Sign Out</button></> :
+                                < ul class="nav navbar-nav navbar-right" >
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            {this.state.user}<span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/buyerprofile">Profile</a></li>
+                                            <li><a onClick={() => { localStorage.removeItem("x-auth-token"); window.location = "/" }}>Sign Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul ></> :
 
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown">

@@ -16,7 +16,7 @@ class FormModule extends Component {
             lname: "",
             email: "",
             mobile: "",
-            address: ""
+            address: "",
         }
     }
 
@@ -39,7 +39,10 @@ class FormModule extends Component {
         axios.post('http://localhost:5000/buyer/', buyer)
             .then(res => console.log(res.data))
             .catch(e => console.log(e));
+
+        window.location = "./buyersignin";
     }
+
     render() {
         return (
             <div>

@@ -31,7 +31,7 @@ class DetailModule extends Component {
                 lname: res.data.lname,
                 email: res.data.email,
                 mobile: res.data.mobile,
-                address: res.data.address
+                address: res.data.address,
             })
         }).catch((err) => {})
 
@@ -68,6 +68,10 @@ class DetailModule extends Component {
                                         <div class="row specification">
                                             <div class="col-sm-6"> <label>Mobile</label> </div>
                                             <div class="col-sm-6"> <p>{this.state.mobile}</p> </div>
+                                        </div>
+                                        <div class="row specification">
+                                            <div class="col-sm-6"> <label>Address</label> </div>
+                                            <div class="col-sm-6"> <p>{this.state.address}</p> </div>
                                         </div>
                                     </div>
                                 </div>
