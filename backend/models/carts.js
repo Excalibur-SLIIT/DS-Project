@@ -6,12 +6,8 @@ const cart = new mongo.Schema({
         type: String,
         require: true
     },
-    item:  {
-        type: item,
-        require: true
-    },
-    quantity: {
-        type: Number,
+    itemId:  {
+        type: String,
         require: true
     }
 }, {
