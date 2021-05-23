@@ -81,7 +81,7 @@ class DetailModule extends Component {
                                 <div style={{ width: '50%', margin: 'auto' }}>
                                     <div class="col-sm-7" style={{ width: '100.3333333%' }}>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
-                                            <a href="#Update" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
+                                            <a href="/buyereditprofile" class="btn btn-primary btn-lg justify"><i class="iconify" data-icon="akar-icons:edit" data-inline="false"></i>&nbsp;&nbsp;Edit Profile</a>
                                         </div>
                                         <div class="col-sm-4" style={{ width: '50%' }}>
                                             <a href="#Remove" class="btn btn-primary btn-lg justify"><i class="ion-trash-b"></i>&nbsp;&nbsp; Delete Account</a>
