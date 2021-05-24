@@ -157,7 +157,7 @@ const login = async (req, res) => {
                     description: "User not available"
                 });
             } else if (String(result.password) === req.body.password) {
-                //Return jsonwebtoken
+                //Return jsonwebtoken.
                 const payload = {
                     user: {
                         id: result.id,
